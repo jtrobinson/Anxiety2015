@@ -1,6 +1,7 @@
 package zesty.squid.anxiety;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +13,15 @@ public class ActLaunchScreen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_launch_screen);
+        
+        // Wait 2 seconds
+        try{
+        	wait(2000);
+        }
+        catch (Exception e){}
+        // Switch to Main Menu
+        Intent launchMenu = new Intent(this, ActMainMenu.class);
+        startActivity(launchMenu);
     }
 
 
