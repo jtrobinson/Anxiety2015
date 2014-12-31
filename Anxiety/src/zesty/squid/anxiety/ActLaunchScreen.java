@@ -9,6 +9,8 @@ import android.view.MenuItem;
 
 public class ActLaunchScreen extends Activity {
 
+	private final int waitTime = 10; // Number of seconds to wait
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,7 +18,7 @@ public class ActLaunchScreen extends Activity {
         
         // Wait 2 seconds
         try{
-        	wait(2000);
+        	wait(waitTime * 1000);
         }
         catch (Exception e){}
         // Switch to Main Menu
