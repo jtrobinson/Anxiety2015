@@ -135,6 +135,7 @@ public class ActGameScreen extends SimpleBaseGameActivity {
 		blob = new Sprite(0, 0, this.mBlobTextureRegion, getVertexBufferObjectManager());
 		scene.attachChild(blob);
 		
+		
 		return scene;
 	}
 	

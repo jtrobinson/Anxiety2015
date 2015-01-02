@@ -11,13 +11,20 @@ import android.view.MenuItem;
 
 public class ActLaunchScreen extends Activity {
 
-	// Placeholder for any launch screen I may need.
+	private final int waitTime = 10; // Number of seconds to wait
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_launch_screen);
-                
+        
+        // Wait 2 seconds
+        try{
+        	wait(waitTime * 1000);
+        }
+        catch (Exception e){
+        	Debug.e(e);
+        }
         // Switch to Main Menu
         Intent launchMenu = new Intent(this, ActMainMenu.class);
         startActivity(launchMenu);

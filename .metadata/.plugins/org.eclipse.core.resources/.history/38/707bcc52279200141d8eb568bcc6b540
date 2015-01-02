@@ -31,10 +31,8 @@ public class ActGameScreen extends SimpleBaseGameActivity {
 	private static int CAMERA_HEIGHT = 800;
 	private static int NUM_ROWS = 10;
 	private static int NUM_COLS = 6;
-	private static int SQUARE_SIDE = 80;
 	
 	private ITextureRegion mBackgroundTextureRegion, mBlobTextureRegion;
-	private Sprite blob;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -118,7 +116,7 @@ public class ActGameScreen extends SimpleBaseGameActivity {
 		final Scene scene = new Scene();
 		Sprite backgroundSprite = new Sprite(0, 0, this.mBackgroundTextureRegion, getVertexBufferObjectManager());
 		scene.attachChild(backgroundSprite);
-		
+		return scene;
 		/* From Tower of Hanoi:
 		 * When creating a Sprite object, you pass four parameters. Here’s a brief description of each parameter:
 
@@ -130,12 +128,6 @@ public class ActGameScreen extends SimpleBaseGameActivity {
 		   		A VertexBufferObjectManager holds all the vertices of all the textures that need to be drawn on the scene.
 
 		 */
-		
-		// 2 - Add the towers
-		blob = new Sprite(0, 0, this.mBlobTextureRegion, getVertexBufferObjectManager());
-		scene.attachChild(blob);
-		
-		return scene;
 	}
 	
 }
