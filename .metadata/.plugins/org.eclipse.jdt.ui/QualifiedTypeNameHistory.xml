@@ -3,4 +3,7 @@
 <fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="org.andengine.opengl.texture.region.TextureRegionFactory"/>
+<fullyQualifiedTypeName name="zesty.squid.anxiety.ActGameScreen"/>
+<fullyQualifiedTypeName name="org.andengine.opengl.texture.region.ITextureRegion"/>
+<fullyQualifiedTypeName name="org.andengine.opengl.vbo.VertexBufferObjectManager"/>
 </qualifiedTypeNameHistroy>

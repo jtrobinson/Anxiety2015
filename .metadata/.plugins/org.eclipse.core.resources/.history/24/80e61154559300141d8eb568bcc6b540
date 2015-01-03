@@ -132,14 +132,8 @@ public class ActGameScreen extends SimpleBaseGameActivity {
 
 		 */
 		
-		// 2 - Add the person
-		blob = new PlayerSprite(0, 0, this.mBlobTextureRegion, getVertexBufferObjectManager()){
-		    @Override
-		    public boolean onAreaTouched(TouchEvent pSceneTouchEvent, float pTouchAreaLocalX, float pTouchAreaLocalY) {
-		        blob.setX(blob.getX() + SQUARE_SIDE);
-		        return true;
-		    }
-		};
+		// 2 - Add the towers
+		blob = new PlayerSprite(0, 0, this.mBlobTextureRegion, getVertexBufferObjectManager());
 		scene.attachChild(blob);
 		
 		// 3. Register swipe listeners
@@ -147,9 +141,6 @@ public class ActGameScreen extends SimpleBaseGameActivity {
 		scene.setTouchAreaBindingOnActionDownEnabled(true);
 		// May need to replace this method in order to use swipes
 		// May also need for the Touch Area to cover the entire screen
-		// For now, touching the Blob just makes him move to the right.
-		
-		// Resume at "Notice that onAreaTouched returns a boolean value."
 		
 		return scene;
 	}
