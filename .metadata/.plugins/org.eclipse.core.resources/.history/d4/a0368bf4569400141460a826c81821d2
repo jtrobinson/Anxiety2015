@@ -41,7 +41,6 @@ public class PlayerSprite extends Sprite {
     private void checkForCollisionsWithPeople() {
     }
     
-    
     @Override
     public boolean onAreaTouched(TouchEvent pSceneTouchEvent, float pTouchAreaLocalX, float pTouchAreaLocalY) {
         //blob.setX(blob.getX() + SQUARE_SIDE);
@@ -49,10 +48,8 @@ public class PlayerSprite extends Sprite {
         return true;
     }
     
-    /*
     @Override
-    public boolean onAreaTouched(TouchEvent pSceneTouchEvent, float pTouchAreaLocalX, float pTouchAreaLocalY) {
-    	
-        return true;
-    }*/
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,float velocityY) {
+    	return true;
+    }
 }

@@ -41,18 +41,18 @@ public class PlayerSprite extends Sprite {
     private void checkForCollisionsWithPeople() {
     }
     
-    
+    /*
     @Override
     public boolean onAreaTouched(TouchEvent pSceneTouchEvent, float pTouchAreaLocalX, float pTouchAreaLocalY) {
         //blob.setX(blob.getX() + SQUARE_SIDE);
     	this.setPosition(pSceneTouchEvent.getX() - this.getWidth() / 2, pSceneTouchEvent.getY() - this.getHeight() / 2);
         return true;
     }
+    */
     
-    /*
     @Override
     public boolean onAreaTouched(TouchEvent pSceneTouchEvent, float pTouchAreaLocalX, float pTouchAreaLocalY) {
     	
         return true;
-    }*/
+    }
 }
