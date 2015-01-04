@@ -1,0 +1,13 @@
+package zesty.squid.anxiety;
+
+import org.andengine.entity.scene.Scene;
+
+public class TrainScene extends Scene implements IOnSceneTouchListener{
+
+	public TrainScene() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+}

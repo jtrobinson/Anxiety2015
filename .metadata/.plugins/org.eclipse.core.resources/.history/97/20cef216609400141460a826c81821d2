@@ -1,0 +1,19 @@
+package zesty.squid.anxiety;
+
+import org.andengine.entity.scene.IOnSceneTouchListener;
+import org.andengine.entity.scene.Scene;
+import org.andengine.input.touch.TouchEvent;
+
+public class TrainScene extends Scene implements IOnSceneTouchListener{
+
+	public TrainScene() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public boolean onSceneTouchEvent(Scene pScene, TouchEvent pSceneTouchEvent) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+}

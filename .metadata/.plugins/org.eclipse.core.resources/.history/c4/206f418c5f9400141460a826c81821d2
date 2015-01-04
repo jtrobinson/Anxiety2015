@@ -131,15 +131,15 @@ public class PlayerSprite extends Sprite {
     }
     
     public void moveUp(){
-    	Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving UP");
+    	Log.w("SWIPE_DEBUG", "Moving UP");
     }
 	public void moveDown(){
-		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving DOWN");	
+		Log.w("SWIPE_DEBUG", "Moving DOWN");	
     }
 	public void moveLeft(){
-		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving LEFT");
+		Log.w("SWIPE_DEBUG", "Moving LEFT");
 	}
 	public void moveRight(){
-		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving RIGHT");
+		Log.w("SWIPE_DEBUG", "Moving RIGHT");
 	}
 }

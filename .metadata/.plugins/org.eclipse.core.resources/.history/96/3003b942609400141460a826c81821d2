@@ -133,7 +133,7 @@ public class ActGameScreen extends SimpleBaseGameActivity {
 		 */
 		
 		// 2 - Add the person and 
-		scene.blob = new PlayerSprite(2*SQUARE_SIDE, 3*SQUARE_SIDE, this.mBlobTextureRegion, getVertexBufferObjectManager());
+		blob = new PlayerSprite(2*SQUARE_SIDE, 3*SQUARE_SIDE, this.mBlobTextureRegion, getVertexBufferObjectManager());
 		scene.attachChild(blob);
 		
 		// 3. Register swipe listeners
