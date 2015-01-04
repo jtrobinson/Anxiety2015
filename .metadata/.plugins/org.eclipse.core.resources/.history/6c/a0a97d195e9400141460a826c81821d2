@@ -86,7 +86,7 @@ public class PlayerSprite extends Sprite {
             Log.w("SWIPE_DEBUG", "Start coordinates were ("+swipeStartX+", "+swipeStartY+")");
             Log.w("SWIPE_DEBUG", "End coordinates were ("+swipeEndX+", "+swipeEndY+")");
         	
-            swipeMove(swipeEndX - swipeStartX, swipeEndY - swipeStartY);            
+            generalMove(swipeEndX - swipeStartX, swipeEndY - swipeStartY);            
             
             
         	// restore Swipe X and Y variables to normal at the end of the swipe
@@ -98,7 +98,7 @@ public class PlayerSprite extends Sprite {
         return true;
     }
     
-    private void swipeMove(float deltaX, float deltaY){
+    public void generalMove(float deltaX, float deltaY){
     	float absDeltaX = Math.abs(deltaX);
     	float absDeltaY = Math.abs(deltaY);
     	
