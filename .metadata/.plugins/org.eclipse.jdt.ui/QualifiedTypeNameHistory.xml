@@ -6,4 +6,8 @@
 <fullyQualifiedTypeName name="zesty.squid.anxiety.ActGameScreen"/>
 <fullyQualifiedTypeName name="org.andengine.opengl.texture.region.ITextureRegion"/>
 <fullyQualifiedTypeName name="org.andengine.opengl.vbo.VertexBufferObjectManager"/>
+<fullyQualifiedTypeName name="android.view.MotionEvent"/>
+<fullyQualifiedTypeName name="java.io.Console"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="org.andengine.entity.scene.IOnSceneTouchListener"/>
 </qualifiedTypeNameHistroy>
