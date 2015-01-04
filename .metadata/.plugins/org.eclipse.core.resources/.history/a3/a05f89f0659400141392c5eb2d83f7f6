@@ -142,26 +142,17 @@ public class PlayerSprite extends Sprite {
     
     public void moveUp(){
     	Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving UP");
-    	if (this.getY() >= ActGameScreen.SQUARE_SIDE){
-    		this.setY(this.getY() - ActGameScreen.SQUARE_SIDE);
+    	if (this.getX() < ActGameScreen.CAMERA_WIDTH - ActGameScreen.SQUARE_SIDE){
+    		this.setX(this.getX() + ActGameScreen.SQUARE_SIDE);
     	}
     }
 	public void moveDown(){
-		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving DOWN");
-		if (this.getY() < ActGameScreen.CAMERA_HEIGHT - ActGameScreen.SQUARE_SIDE){
-    		this.setY(this.getY() + ActGameScreen.SQUARE_SIDE);
-    	}
+		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving DOWN");	
     }
-	public void moveLeft(){ // Confirmed to work
+	public void moveLeft(){
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving LEFT");
-		if (this.getX() >= ActGameScreen.SQUARE_SIDE){
-    		this.setX(this.getX() - ActGameScreen.SQUARE_SIDE);
-    	}
 	}
-	public void moveRight(){ // Confirmed to work
+	public void moveRight(){
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving RIGHT");
-		if (this.getX() < ActGameScreen.CAMERA_WIDTH - ActGameScreen.SQUARE_SIDE){
-    		this.setX(this.getX() + ActGameScreen.SQUARE_SIDE);
-    	}
 	}
 }

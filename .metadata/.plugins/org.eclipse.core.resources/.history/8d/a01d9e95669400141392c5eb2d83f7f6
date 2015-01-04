@@ -142,9 +142,7 @@ public class PlayerSprite extends Sprite {
     
     public void moveUp(){
     	Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving UP");
-    	if (this.getY() >= ActGameScreen.SQUARE_SIDE){
-    		this.setY(this.getY() - ActGameScreen.SQUARE_SIDE);
-    	}
+    	
     }
 	public void moveDown(){
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving DOWN");
