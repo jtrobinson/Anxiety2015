@@ -20,18 +20,18 @@ public class TrainScene extends Scene implements ITouchArea{
 		// TODO Auto-generated constructor stub
 	}
 
-
-	@Override
-	public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
-			float pTouchAreaLocalX, float pTouchAreaLocalY) {
-		return blob.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX, pTouchAreaLocalY);
-	}
-
+	
 
 	@Override
 	public boolean contains(float pX, float pY) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
+			float pTouchAreaLocalX, float pTouchAreaLocalY) {
+		return blob.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX, pTouchAreaLocalY);
 	}
 	
 }
