@@ -1,7 +1,6 @@
 package zesty.squid.anxiety;
 
 import org.andengine.engine.options.EngineOptions;
-import org.andengine.entity.scene.IOnSceneTouchListener;
 import org.andengine.entity.scene.Scene;
 import org.andengine.ui.activity.SimpleBaseGameActivity;
 import org.andengine.engine.camera.Camera;
@@ -28,7 +27,7 @@ import android.view.MotionEvent;
 
 // Board game forum post: http://www.andengine.org/forums/gles1/help-with-boardgame-t1388.html
 
-public class ActGameScreen extends SimpleBaseGameActivity implements IOnSceneTouchListener{
+public class ActGameScreen extends SimpleBaseGameActivity {
 
 	private static int CAMERA_WIDTH = 480;
 	private static int CAMERA_HEIGHT = 800;
@@ -120,8 +119,20 @@ public class ActGameScreen extends SimpleBaseGameActivity implements IOnSceneTou
 		// 1 - Create new scene
 		final Scene scene = new Scene(){
 			public boolean onTouchEvent(MotionEvent event) {
-		        
-				return true;
+		        int myEventAction = event.getAction(); 
+		        float X = event.getX();
+		        float Y = event.getY();
+
+		        switch (myEventAction) {
+		           case MotionEvent.ACTION_DOWN:
+		        	break;
+		           case MotionEvent.ACTION_MOVE: {
+		            	blob.setPosition(X, Y);
+		            	break;}
+		           case MotionEvent.ACTION_UP:
+		                break;
+		        }
+		        return true;
 		    }
 		};
 		
@@ -147,16 +158,10 @@ public class ActGameScreen extends SimpleBaseGameActivity implements IOnSceneTou
 		// 3. Register swipe listeners
 		// Working with touch on the entire scene: https://andengineguides.wordpress.com/2011/09/14/getting-started-touch-events/
 		
-		//scene.registerTouchArea(blob);
-		scene.setOnSceneTouchListener(this);
+		scene.registerTouchArea(blob);
 		scene.setTouchAreaBindingOnActionDownEnabled(true);
 		
 		return scene;
-	}
-
-	@Override
-	public boolean onSceneTouchEvent(Scene pScene, TouchEvent pSceneTouchEvent) {
-		return blob.onAreaTouched(pSceneTouchEvent, pSceneTouchEvent.getX(), pSceneTouchEvent.getY());
 	}
 	
 }

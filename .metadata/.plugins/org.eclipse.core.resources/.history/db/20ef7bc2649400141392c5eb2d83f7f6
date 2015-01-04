@@ -68,7 +68,6 @@ public class PlayerSprite extends Sprite {
 	    	}
         }
 
-        /*
         if (pSceneTouchEvent.isActionMove())
         {
            //This will be called when you slide your finger, so you
@@ -76,9 +75,8 @@ public class PlayerSprite extends Sprite {
            // and pSceneTouchEvent.getY()
 
         }
-        */
 
-        else if (pSceneTouchEvent.isActionUp())
+        if (pSceneTouchEvent.isActionUp())
         {
         	//this will be called when you release the sprite
         	// and tell the update handler to apply the force
@@ -104,11 +102,8 @@ public class PlayerSprite extends Sprite {
     	float absDeltaX = Math.abs(deltaX);
     	float absDeltaY = Math.abs(deltaY);
     	
-    	Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Entering SwipeMove");
-    	
     	// If the player has just tapped the screen, don't do squat. Otherwise, get calculating.
     	if (absDeltaX >= 1 && absDeltaY >= 1){
-    		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Better than a tap");
 	    	// If the deltaY is greater than the deltaX, it means the swipe was more vertical than horizontal
 	    	// Preference is given to vertical in the event that both are equal, since the screen is taller than it is wide.
 	    	if (absDeltaY >= absDeltaX){
@@ -137,15 +132,15 @@ public class PlayerSprite extends Sprite {
     }
     
     public void moveUp(){
-    	Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving UP");
+    	Log.w("SWIPE_DEBUG", "Moving UP");
     }
 	public void moveDown(){
-		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving DOWN");	
+		Log.w("SWIPE_DEBUG", "Moving DOWN");	
     }
 	public void moveLeft(){
-		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving LEFT");
+		Log.w("SWIPE_DEBUG", "Moving LEFT");
 	}
 	public void moveRight(){
-		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving RIGHT");
+		Log.w("SWIPE_DEBUG", "Moving RIGHT");
 	}
 }
