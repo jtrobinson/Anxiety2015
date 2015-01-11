@@ -156,7 +156,7 @@ public class PlayerSprite extends Sprite {
     }
 	public void moveLeft(){
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving LEFT");
-		if (this.getX() >= ActGameScreen.BOARD_MIN_X + ActGameScreen.SQUARE_SIDE){
+		if (this.getX() >= ActGameScreen.BOARD_MAX_X + ActGameScreen.SQUARE_SIDE){
     		this.setX(this.getX() - ActGameScreen.SQUARE_SIDE);
     	}
 	}

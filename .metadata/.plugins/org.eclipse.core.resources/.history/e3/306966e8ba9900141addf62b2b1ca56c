@@ -142,21 +142,24 @@ public class PlayerSprite extends Sprite {
     // Max Y: 800
     // Increments of 80
     
-    public void moveUp(){ // Confirmed to work
+    public void moveUp(){
     	Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving UP");
     	if (this.getY() >= ActGameScreen.BOARD_MIN_Y + ActGameScreen.SQUARE_SIDE){
     		this.setY(this.getY() - ActGameScreen.SQUARE_SIDE);
     	}
     }
-	public void moveDown(){ // Confirmed to work
+	public void moveDown(){
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving DOWN");
-		if (this.getY() < ActGameScreen.BOARD_MAX_Y - ActGameScreen.SQUARE_SIDE){
+		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: GetY is " + this.getY());
+		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: BOARD_MIN_Y is " + ActGameScreen.BOARD_MIN_Y);
+		Log.w("SWIPE_DEBUG", "Logic is if (this.getY() < ActGameScreen.BOARD_MIN_Y)");
+		if (this.getY() <= ActGameScreen.BOARD_MIN_Y){
     		this.setY(this.getY() + ActGameScreen.SQUARE_SIDE);
     	}
     }
 	public void moveLeft(){
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving LEFT");
-		if (this.getX() >= ActGameScreen.BOARD_MIN_X + ActGameScreen.SQUARE_SIDE){
+		if (this.getX() >= ActGameScreen.BOARD_MAX_X + ActGameScreen.SQUARE_SIDE){
     		this.setX(this.getX() - ActGameScreen.SQUARE_SIDE);
     	}
 	}

@@ -62,12 +62,10 @@ public class PlayerSprite extends Sprite {
 	        //here is where the touch was initiated so you 
 	        //can store the x,y location. You obtain it by using pSceneTouchEvent.getX()
 	        // and pSceneTouchEvent.getY()
-        	if(pSceneTouchEvent.getX() >= ActGameScreen.BOARD_MIN_X && pSceneTouchEvent.getY() >= ActGameScreen.BOARD_MIN_Y){
-		    	if (swipeStartX == -1 && swipeStartY == -1){
-		    		swipeStartX = pSceneTouchEvent.getX();
-		            swipeStartY = pSceneTouchEvent.getY();
-		    	}
-        	}
+	    	if (swipeStartX == -1 && swipeStartY == -1){
+	    		swipeStartX = pSceneTouchEvent.getX();
+	            swipeStartY = pSceneTouchEvent.getY();
+	    	}
         }
 
         /*
@@ -142,27 +140,27 @@ public class PlayerSprite extends Sprite {
     // Max Y: 800
     // Increments of 80
     
-    public void moveUp(){ // Confirmed to work
+    public void moveUp(){
     	Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving UP");
-    	if (this.getY() >= ActGameScreen.BOARD_MIN_Y + ActGameScreen.SQUARE_SIDE){
+    	if (this.getY() >= ActGameScreen.SQUARE_SIDE){
     		this.setY(this.getY() - ActGameScreen.SQUARE_SIDE);
     	}
     }
-	public void moveDown(){ // Confirmed to work
+	public void moveDown(){
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving DOWN");
-		if (this.getY() < ActGameScreen.BOARD_MAX_Y - ActGameScreen.SQUARE_SIDE){
+		if (this.getY() < ActGameScreen.CAMERA_HEIGHT - ActGameScreen.SQUARE_SIDE){
     		this.setY(this.getY() + ActGameScreen.SQUARE_SIDE);
     	}
     }
-	public void moveLeft(){
+	public void moveLeft(){ // Confirmed to work
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving LEFT");
-		if (this.getX() >= ActGameScreen.BOARD_MIN_X + ActGameScreen.SQUARE_SIDE){
+		if (this.getX() >= ActGameScreen.SQUARE_SIDE){
     		this.setX(this.getX() - ActGameScreen.SQUARE_SIDE);
     	}
 	}
 	public void moveRight(){ // Confirmed to work
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving RIGHT");
-		if (this.getX() <= ActGameScreen.BOARD_MAX_X - ActGameScreen.SQUARE_SIDE){
+		if (this.getX() < ActGameScreen.CAMERA_WIDTH - ActGameScreen.SQUARE_SIDE){
     		this.setX(this.getX() + ActGameScreen.SQUARE_SIDE);
     	}
 	}
