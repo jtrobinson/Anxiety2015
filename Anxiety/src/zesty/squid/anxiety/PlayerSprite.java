@@ -16,6 +16,12 @@ public class PlayerSprite extends Sprite {
     private float swipeStartY = -1;
     private float swipeEndX = -1;
     private float swipeEndY = -1;
+    
+    public static int MOVING_NULL = -1;
+    public static int MOVING_NORTH = 0;
+    public static int MOVING_EAST = 1;
+    public static int MOVING_SOUTH = 2;
+    public static int MOVING_WEST = 3;
  
     public PlayerSprite(float pX, float pY, ITextureRegion pTextureRegion, VertexBufferObjectManager pVertexBufferObjectManager) {
         super(pX, pY, pTextureRegion, pVertexBufferObjectManager);
@@ -69,17 +75,6 @@ public class PlayerSprite extends Sprite {
 		    	}
         	}
         }
-
-        /*
-        if (pSceneTouchEvent.isActionMove())
-        {
-           //This will be called when you slide your finger, so you
-           //can get the new coordinates by again using pSceneTouchEvent.getX()
-           // and pSceneTouchEvent.getY()
-
-        }
-        */
-
         else if (pSceneTouchEvent.isActionUp())
         {
         	//this will be called when you release the sprite
@@ -91,7 +86,6 @@ public class PlayerSprite extends Sprite {
             Log.w("SWIPE_DEBUG", "End coordinates were ("+swipeEndX+", "+swipeEndY+")");
         	
             swipeMove(swipeEndX - swipeStartX, swipeEndY - swipeStartY);            
-            
             
         	// restore Swipe X and Y variables to normal at the end of the swipe
         	swipeStartX = -1;
@@ -141,29 +135,67 @@ public class PlayerSprite extends Sprite {
     // Max X: 480
     // Max Y: 800
     // Increments of 80
-    
-    public void moveUp(){ // Confirmed to work
+   
+    private void moveUp(){ // Confirmed to work
     	Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving UP");
-    	if (this.getY() >= ActGameScreen.BOARD_MIN_Y + ActGameScreen.SQUARE_SIDE){
+    	if (!collidingWithObjects(MOVING_NORTH) && this.getY() >= ActGameScreen.BOARD_MIN_Y + ActGameScreen.SQUARE_SIDE){
     		this.setY(this.getY() - ActGameScreen.SQUARE_SIDE);
     	}
     }
-	public void moveDown(){ // Confirmed to work
+    private void moveDown(){ // Confirmed to work
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving DOWN");
-		if (this.getY() < ActGameScreen.BOARD_MAX_Y - ActGameScreen.SQUARE_SIDE){
+		if (!collidingWithObjects(MOVING_SOUTH) && this.getY() < ActGameScreen.BOARD_MAX_Y - ActGameScreen.SQUARE_SIDE){
     		this.setY(this.getY() + ActGameScreen.SQUARE_SIDE);
     	}
     }
-	public void moveLeft(){
+	private void moveLeft(){
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving LEFT");
-		if (this.getX() >= ActGameScreen.BOARD_MIN_X + ActGameScreen.SQUARE_SIDE){
+		if (!collidingWithObjects(MOVING_WEST) && this.getX() >= ActGameScreen.BOARD_MIN_X + ActGameScreen.SQUARE_SIDE){
     		this.setX(this.getX() - ActGameScreen.SQUARE_SIDE);
     	}
 	}
-	public void moveRight(){ // Confirmed to work
+	private void moveRight(){ // Confirmed to work
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving RIGHT");
-		if (this.getX() <= ActGameScreen.BOARD_MAX_X - ActGameScreen.SQUARE_SIDE){
+		if (!collidingWithObjects(MOVING_EAST) && this.getX() <= ActGameScreen.BOARD_MAX_X - ActGameScreen.SQUARE_SIDE){
     		this.setX(this.getX() + ActGameScreen.SQUARE_SIDE);
     	}
+	}
+	
+	private boolean collidingWithObjects(int _direction){
+		boolean rValue = false;
+		
+		switch (_direction){
+			case 0: // MOVING_NORTH
+				if (
+						collidingQ1SeatBoundary(MOVING_NORTH) 
+						/*|| this.getY() - ActGameScreen.SQUARE_SIDE == ActGameScreen.q2Boundary.yLine ||
+						this.getY() - ActGameScreen.SQUARE_SIDE == ActGameScreen.q3Boundary.yLine ||
+						this.getY() - ActGameScreen.SQUARE_SIDE == ActGameScreen.q4Boundary.yLine*/
+					){
+					rValue = true;
+				}
+				break;
+			case 1: // MOVING_EAST
+				break;
+			case 2: // MOVING_SOUTH
+				break;
+			case 3: // MOVING_WEST
+				break;
+			default: 
+				break;
+		}
+		
+		return rValue;
+	}
+	
+	private boolean collidingQ1SeatBoundary(int _direction){
+		boolean rValue = false;
+		if (_direction == MOVING_NORTH){
+			rValue =  this.getY() - ActGameScreen.SQUARE_SIDE == ActGameScreen.q1Boundary.yLine && this.getX() >= ActGameScreen.q1Boundary.rightX && this.getX() >= ActGameScreen.q1Boundary.leftX;
+		}
+		else if (_direction == MOVING_SOUTH){
+			rValue =  this.getY() + ActGameScreen.SQUARE_SIDE == ActGameScreen.q1Boundary.yLine && this.getX() >= ActGameScreen.q1Boundary.rightX && this.getX() >= ActGameScreen.q1Boundary.leftX;
+		}
+		return rValue;
 	}
 }

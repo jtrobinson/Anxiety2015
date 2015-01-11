@@ -41,8 +41,17 @@ public class ActGameScreen extends SimpleBaseGameActivity implements IOnSceneTou
 	public static int BOARD_MAX_X = 452;
 	public static int BOARD_MAX_Y = 773;
 	
-	private ITextureRegion mBackgroundTextureRegion, mBlobTextureRegion;
+	// Q1  Q2
+	//
+	// Q3  Q4
+	protected static SeatBoundary q1Boundary = new SeatBoundary(ActGameScreen.BOARD_MIN_X,147,286);
+	protected static SeatBoundary q2Boundary = new SeatBoundary(331,ActGameScreen.BOARD_MAX_X,286);
+	protected static SeatBoundary q3Boundary = new SeatBoundary(ActGameScreen.BOARD_MIN_X,147,591);
+	protected static SeatBoundary q4Boundary = new SeatBoundary(331,ActGameScreen.BOARD_MAX_X,591);
+	
+	private ITextureRegion mBackgroundTextureRegion, mBlobTextureRegion, mSeatsTextureRegion;
 	private Sprite blob;
+	private Sprite seats;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -101,14 +110,23 @@ public class ActGameScreen extends SimpleBaseGameActivity implements IOnSceneTou
 		            return getAssets().open("gfx/dood60.png");
 		        }
 		    });
+		    ITexture seatsSouthTexture = new BitmapTexture(this.getTextureManager(), new IInputStreamOpener() {
+		        @Override
+		        public InputStream open() throws IOException {
+		            return getAssets().open("gfx/seats.png");
+		        }
+		    });
+		    
 		    
 		    // 2 - Load bitmap textures into VRAM
 		    backgroundTexture.load();
 		    blobTexture.load();
+		    seatsSouthTexture.load();
 		    
 		    // 3 - Set up texture regions
 		    this.mBackgroundTextureRegion = TextureRegionFactory.extractFromTexture(backgroundTexture);
 		    this.mBlobTextureRegion = TextureRegionFactory.extractFromTexture(blobTexture);
+		    this.mSeatsTextureRegion = TextureRegionFactory.extractFromTexture(seatsSouthTexture);
 		    
 		} catch (IOException e) {
 		    Debug.e(e);
@@ -145,8 +163,10 @@ public class ActGameScreen extends SimpleBaseGameActivity implements IOnSceneTou
 
 		 */
 		
-		// 2 - Add the person and 
+		// 2 - Add the person and seats
+		seats = new AllSeats(BOARD_MIN_X, BOARD_MIN_Y, this.mSeatsTextureRegion, getVertexBufferObjectManager());
 		blob = new PlayerSprite(BOARD_MIN_X, BOARD_MIN_Y, this.mBlobTextureRegion, getVertexBufferObjectManager());
+		scene.attachChild(seats);
 		scene.attachChild(blob);
 		
 		// 3. Register swipe listeners
@@ -154,6 +174,13 @@ public class ActGameScreen extends SimpleBaseGameActivity implements IOnSceneTou
 		scene.setOnSceneTouchListener(this);
 		scene.setTouchAreaBindingOnActionDownEnabled(true);
 		
+		// Set up seat boundaries
+		/*
+		q1Boundary = new SeatBoundary(ActGameScreen.BOARD_MIN_X,147,286);
+        q2Boundary = new SeatBoundary(331,ActGameScreen.BOARD_MAX_X,286);
+        q3Boundary = new SeatBoundary(ActGameScreen.BOARD_MIN_X,147,591);
+        q4Boundary = new SeatBoundary(331,ActGameScreen.BOARD_MAX_X,591);
+		*/
 		return scene;
 	}
 

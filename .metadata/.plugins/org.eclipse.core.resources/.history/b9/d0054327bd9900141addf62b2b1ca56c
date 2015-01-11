@@ -1,0 +1,106 @@
+package zesty.squid.anxiety;
+
+import org.andengine.entity.sprite.Sprite;
+import org.andengine.entity.sprite.vbo.ISpriteVertexBufferObject;
+import org.andengine.opengl.shader.ShaderProgram;
+import org.andengine.opengl.texture.region.ITextureRegion;
+import org.andengine.opengl.vbo.DrawType;
+import org.andengine.opengl.vbo.VertexBufferObjectManager;
+
+public class Seat extends Sprite {
+
+	public Seat(float pX, float pY, ITextureRegion pTextureRegion,
+			VertexBufferObjectManager pVertexBufferObjectManager) {
+		super(pX, pY, pTextureRegion, pVertexBufferObjectManager);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Seat(float pX, float pY, ITextureRegion pTextureRegion,
+			ISpriteVertexBufferObject pVertexBufferObject) {
+		super(pX, pY, pTextureRegion, pVertexBufferObject);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Seat(float pX, float pY, ITextureRegion pTextureRegion,
+			VertexBufferObjectManager pVertexBufferObjectManager,
+			ShaderProgram pShaderProgram) {
+		super(pX, pY, pTextureRegion, pVertexBufferObjectManager,
+				pShaderProgram);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Seat(float pX, float pY, ITextureRegion pTextureRegion,
+			VertexBufferObjectManager pVertexBufferObjectManager,
+			DrawType pDrawType) {
+		super(pX, pY, pTextureRegion, pVertexBufferObjectManager, pDrawType);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Seat(float pX, float pY, ITextureRegion pTextureRegion,
+			ISpriteVertexBufferObject pVertexBufferObject,
+			ShaderProgram pShaderProgram) {
+		super(pX, pY, pTextureRegion, pVertexBufferObject, pShaderProgram);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Seat(float pX, float pY, ITextureRegion pTextureRegion,
+			VertexBufferObjectManager pVertexBufferObjectManager,
+			DrawType pDrawType, ShaderProgram pShaderProgram) {
+		super(pX, pY, pTextureRegion, pVertexBufferObjectManager, pDrawType,
+				pShaderProgram);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Seat(float pX, float pY, float pWidth, float pHeight,
+			ITextureRegion pTextureRegion,
+			VertexBufferObjectManager pVertexBufferObjectManager) {
+		super(pX, pY, pWidth, pHeight, pTextureRegion,
+				pVertexBufferObjectManager);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Seat(float pX, float pY, float pWidth, float pHeight,
+			ITextureRegion pTextureRegion,
+			ISpriteVertexBufferObject pSpriteVertexBufferObject) {
+		super(pX, pY, pWidth, pHeight, pTextureRegion,
+				pSpriteVertexBufferObject);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Seat(float pX, float pY, float pWidth, float pHeight,
+			ITextureRegion pTextureRegion,
+			VertexBufferObjectManager pVertexBufferObjectManager,
+			ShaderProgram pShaderProgram) {
+		super(pX, pY, pWidth, pHeight, pTextureRegion,
+				pVertexBufferObjectManager, pShaderProgram);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Seat(float pX, float pY, float pWidth, float pHeight,
+			ITextureRegion pTextureRegion,
+			VertexBufferObjectManager pVertexBufferObjectManager,
+			DrawType pDrawType) {
+		super(pX, pY, pWidth, pHeight, pTextureRegion,
+				pVertexBufferObjectManager, pDrawType);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Seat(float pX, float pY, float pWidth, float pHeight,
+			ITextureRegion pTextureRegion,
+			ISpriteVertexBufferObject pSpriteVertexBufferObject,
+			ShaderProgram pShaderProgram) {
+		super(pX, pY, pWidth, pHeight, pTextureRegion,
+				pSpriteVertexBufferObject, pShaderProgram);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Seat(float pX, float pY, float pWidth, float pHeight,
+			ITextureRegion pTextureRegion,
+			VertexBufferObjectManager pVertexBufferObjectManager,
+			DrawType pDrawType, ShaderProgram pShaderProgram) {
+		super(pX, pY, pWidth, pHeight, pTextureRegion,
+				pVertexBufferObjectManager, pDrawType, pShaderProgram);
+		// TODO Auto-generated constructor stub
+	}
+
+}
