@@ -195,11 +195,11 @@ public class PlayerSprite extends Sprite {
 			Log.w("SWIPE_DEBUG", "COLLISION: getY = " + this.getY());
 			Log.w("SWIPE_DEBUG", "COLLISION: boundary Y = " + ActGameScreen.q1Boundary.yLine);
 			Log.w("SWIPE_DEBUG", "COLLISION: getX = " + this.getX());
-			Log.w("SWIPE_DEBUG", "COLLISION: boundary X between " + ActGameScreen.q1Boundary.rightX + " and " + ActGameScreen.q1Boundary.leftX);
-			rValue =  this.getY() == ActGameScreen.q1Boundary.yLine && this.getX() <= ActGameScreen.q1Boundary.rightX && this.getX() >= ActGameScreen.q1Boundary.leftX;
+			Log.w("SWIPE_DEBUG", "COLLISION: boundary X between " + ActGameScreen.q1Boundary.leftX + " and " + ActGameScreen.q1Boundary.rightX);
+			rValue =  this.getY() == ActGameScreen.q1Boundary.yLine && this.getX() >= ActGameScreen.q1Boundary.rightX && this.getX() >= ActGameScreen.q1Boundary.leftX;
 		}
 		else if (_direction == MOVING_SOUTH){
-			rValue =  this.getY() + ActGameScreen.SQUARE_SIDE == ActGameScreen.q1Boundary.yLine && this.getX() <= ActGameScreen.q1Boundary.rightX && this.getX() >= ActGameScreen.q1Boundary.leftX;
+			rValue =  this.getY() + ActGameScreen.SQUARE_SIDE == ActGameScreen.q1Boundary.yLine && this.getX() >= ActGameScreen.q1Boundary.rightX && this.getX() >= ActGameScreen.q1Boundary.leftX;
 		}
 		return rValue;
 	}

@@ -2,9 +2,9 @@ package zesty.squid.anxiety;
 
 public class SeatBoundary {
 
-	protected float leftX;
-	protected float rightX;
-	protected float yLine;
+	protected int leftX;
+	protected int rightX;
+	protected int yLine;
 	
 	public SeatBoundary(int _leftX, int _rightX, int _yLine){
 		leftX = _leftX;
