@@ -34,12 +34,7 @@ public class ActGameScreen extends SimpleBaseGameActivity implements IOnSceneTou
 	public static int CAMERA_HEIGHT = 800;
 	private static int NUM_ROWS = 10;
 	private static int NUM_COLS = 6;
-	public static int SQUARE_SIDE = 60;
-	
-	public static int BOARD_MIN_X = 27;
-	public static int BOARD_MIN_Y = 104;
-	public static int BOARD_MAX_X = 452;
-	public static int BOARD_MAX_Y = 773;
+	public static int SQUARE_SIDE = 80;
 	
 	private ITextureRegion mBackgroundTextureRegion, mBlobTextureRegion;
 	private Sprite blob;
