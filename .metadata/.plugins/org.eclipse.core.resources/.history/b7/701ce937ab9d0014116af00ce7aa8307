@@ -166,14 +166,15 @@ public class PlayerSprite extends Sprite {
 		
 		switch (_direction){
 			case 0: // MOVING_NORTH
-				if (collidingAnySeatBoundary(MOVING_NORTH)){
+				Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Registered moving North");
+				if (collidingQ1SeatBoundary(MOVING_NORTH)){
 					rValue = true;
 				}
 				break;
 			case 1: // MOVING_EAST
 				break;
 			case 2: // MOVING_SOUTH
-				if (collidingAnySeatBoundary(MOVING_SOUTH)){
+				if (collidingQ1SeatBoundary(MOVING_SOUTH)){
 					rValue = true;
 				}
 				break;
@@ -186,10 +187,6 @@ public class PlayerSprite extends Sprite {
 		return rValue;
 	}
 	
-	private boolean collidingAnySeatBoundary(int _direction){
-		return collidingQ1SeatBoundary(_direction) || collidingQ2SeatBoundary(_direction) || collidingQ3SeatBoundary(_direction) || collidingQ4SeatBoundary(_direction);
-	}
-	
 	private boolean collidingQ1SeatBoundary(int _direction){
 		boolean rValue = false;
 		if (_direction == MOVING_NORTH){
@@ -197,39 +194,6 @@ public class PlayerSprite extends Sprite {
 		}
 		else if (_direction == MOVING_SOUTH){
 			rValue =  this.getY() + ActGameScreen.SQUARE_SIDE == ActGameScreen.q1Boundary.yLine && this.getX() <= ActGameScreen.q1Boundary.rightX && this.getX() >= ActGameScreen.q1Boundary.leftX;
-		}
-		return rValue;
-	}
-	
-	private boolean collidingQ2SeatBoundary(int _direction){
-		boolean rValue = false;
-		if (_direction == MOVING_NORTH){
-			rValue =  this.getY() == ActGameScreen.q2Boundary.yLine && this.getX() <= ActGameScreen.q2Boundary.rightX && this.getX() >= ActGameScreen.q2Boundary.leftX;
-		}
-		else if (_direction == MOVING_SOUTH){
-			rValue =  this.getY() + ActGameScreen.SQUARE_SIDE == ActGameScreen.q2Boundary.yLine && this.getX() <= ActGameScreen.q2Boundary.rightX && this.getX() >= ActGameScreen.q2Boundary.leftX;
-		}
-		return rValue;
-	}
-	
-	private boolean collidingQ3SeatBoundary(int _direction){
-		boolean rValue = false;
-		if (_direction == MOVING_NORTH){
-			rValue =  this.getY() == ActGameScreen.q3Boundary.yLine && this.getX() <= ActGameScreen.q3Boundary.rightX && this.getX() >= ActGameScreen.q3Boundary.leftX;
-		}
-		else if (_direction == MOVING_SOUTH){
-			rValue =  this.getY() + ActGameScreen.SQUARE_SIDE == ActGameScreen.q3Boundary.yLine && this.getX() <= ActGameScreen.q3Boundary.rightX && this.getX() >= ActGameScreen.q3Boundary.leftX;
-		}
-		return rValue;
-	}
-	
-	private boolean collidingQ4SeatBoundary(int _direction){
-		boolean rValue = false;
-		if (_direction == MOVING_NORTH){
-			rValue =  this.getY() == ActGameScreen.q4Boundary.yLine && this.getX() <= ActGameScreen.q4Boundary.rightX && this.getX() >= ActGameScreen.q4Boundary.leftX;
-		}
-		else if (_direction == MOVING_SOUTH){
-			rValue =  this.getY() + ActGameScreen.SQUARE_SIDE == ActGameScreen.q4Boundary.yLine && this.getX() <= ActGameScreen.q4Boundary.rightX && this.getX() >= ActGameScreen.q4Boundary.leftX;
 		}
 		return rValue;
 	}

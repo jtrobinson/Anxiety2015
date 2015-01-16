@@ -166,14 +166,14 @@ public class PlayerSprite extends Sprite {
 		
 		switch (_direction){
 			case 0: // MOVING_NORTH
-				if (collidingAnySeatBoundary(MOVING_NORTH)){
+				if (){
 					rValue = true;
 				}
 				break;
 			case 1: // MOVING_EAST
 				break;
 			case 2: // MOVING_SOUTH
-				if (collidingAnySeatBoundary(MOVING_SOUTH)){
+				if (collidingQ1SeatBoundary(MOVING_SOUTH) || collidingQ2SeatBoundary(MOVING_SOUTH) || collidingQ3SeatBoundary(MOVING_SOUTH) || collidingQ4SeatBoundary(MOVING_SOUTH)){
 					rValue = true;
 				}
 				break;

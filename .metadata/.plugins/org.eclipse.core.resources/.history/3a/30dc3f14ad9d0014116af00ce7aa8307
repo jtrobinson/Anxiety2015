@@ -166,14 +166,14 @@ public class PlayerSprite extends Sprite {
 		
 		switch (_direction){
 			case 0: // MOVING_NORTH
-				if (collidingAnySeatBoundary(MOVING_NORTH)){
+				if (collidingQ1SeatBoundary(MOVING_NORTH) || collidingQ2SeatBoundary(MOVING_NORTH) || collidingQ3SeatBoundary(MOVING_NORTH) || collidingQ4SeatBoundary(MOVING_NORTH)){
 					rValue = true;
 				}
 				break;
 			case 1: // MOVING_EAST
 				break;
 			case 2: // MOVING_SOUTH
-				if (collidingAnySeatBoundary(MOVING_SOUTH)){
+				if (collidingQ1SeatBoundary(MOVING_SOUTH) || collidingQ2SeatBoundary(MOVING_SOUTH) || collidingQ3SeatBoundary(MOVING_SOUTH) || collidingQ4SeatBoundary(MOVING_SOUTH)){
 					rValue = true;
 				}
 				break;
@@ -187,7 +187,9 @@ public class PlayerSprite extends Sprite {
 	}
 	
 	private boolean collidingAnySeatBoundary(int _direction){
-		return collidingQ1SeatBoundary(_direction) || collidingQ2SeatBoundary(_direction) || collidingQ3SeatBoundary(_direction) || collidingQ4SeatBoundary(_direction);
+		boolean rValue = false;
+		
+		return rValue;
 	}
 	
 	private boolean collidingQ1SeatBoundary(int _direction){
