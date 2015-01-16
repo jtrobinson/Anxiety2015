@@ -165,7 +165,7 @@ public class ActGameScreen extends SimpleBaseGameActivity implements IOnSceneTou
 		
 		// 2 - Add the person and seats
 		seats = new AllSeats(BOARD_MIN_X, BOARD_MIN_Y, this.mSeatsTextureRegion, getVertexBufferObjectManager());
-		blob = new PlayerSprite(BOARD_MIN_X, BOARD_MIN_Y + SQUARE_SIDE*5, this.mBlobTextureRegion, getVertexBufferObjectManager());
+		blob = new PlayerSprite(BOARD_MIN_X, BOARD_MIN_Y, this.mBlobTextureRegion, getVertexBufferObjectManager());
 		scene.attachChild(seats);
 		scene.attachChild(blob);
 		
