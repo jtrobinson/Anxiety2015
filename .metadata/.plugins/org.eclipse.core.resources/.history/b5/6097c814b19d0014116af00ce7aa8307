@@ -1,0 +1,11 @@
+package zesty.squid.anxiety;
+
+public class GridSquare {
+	private boolean _occupied;
+	
+	public GridSquare(){
+		
+	}
+	
+	public boolean isOccupied(){return _occupied;)
+}

@@ -1,0 +1,14 @@
+package zesty.squid.anxiety;
+
+public class GridSquare {
+	private boolean _occupied;
+	private int _topX;
+	private int _topY;
+	
+	public GridSquare(int topX, int topY){
+		_topX = topX;
+		_topY = topY;
+	}
+	
+	public boolean isOccupied(){return _occupied;}
+}
