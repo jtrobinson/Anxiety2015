@@ -1,0 +1,7 @@
+package zesty.squid.anxiety;
+
+import org.andengine.entity.sprite.Sprite;
+
+public class RiderSprite extends Sprite {
+
+}

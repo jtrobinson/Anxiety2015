@@ -8,23 +8,31 @@ import org.andengine.input.touch.TouchEvent;
 import android.util.Log;
 import android.view.MotionEvent;
 
-public class PlayerSprite extends Sprite {
+public class PlayerSprite extends GameSprite {
 	private int mWeight;
     private Sprite blob;
     private boolean moving = false;
-    private float swipeStartX = -1;
-    private float swipeStartY = -1;
-    private float swipeEndX = -1;
-    private float swipeEndY = -1;
+    public float swipeStartX = -1;
+    public float swipeStartY = -1;
+    public float swipeEndX = -1;
+    public float swipeEndY = -1;
     
     public static int MOVING_NULL = -1;
     public static int MOVING_NORTH = 0;
     public static int MOVING_EAST = 1;
     public static int MOVING_SOUTH = 2;
     public static int MOVING_WEST = 3;
+    
+    //protected int currentArrayX;
+    //protected int currentArrayY;
  
     public PlayerSprite(float pX, float pY, ITextureRegion pTextureRegion, VertexBufferObjectManager pVertexBufferObjectManager) {
         super(pX, pY, pTextureRegion, pVertexBufferObjectManager);
+        /*Log.w("GRID_DEBUG", "GRID_DEBUG: pX and pY are (" + (pX) + ", " + (pY) + ")");
+        Log.w("GRID_DEBUG", "GRID_DEBUG: Start coordinates are (" + 
+        		(ActGameScreen.BOARD_MIN_X + (ActGameScreen.SQUARE_SIDE*pX)) + ", " +
+        		(ActGameScreen.BOARD_MIN_Y + (ActGameScreen.SQUARE_SIDE*pY)) +  ")");
+        */
     }
  
     public int getmWeight() {
@@ -38,7 +46,7 @@ public class PlayerSprite extends Sprite {
     public void setmStack(Stack mStack) {
         this.mStack = mStack;
     }*/
- 
+    
     public Sprite getBlob() {
         return blob;
     }
@@ -52,15 +60,7 @@ public class PlayerSprite extends Sprite {
     private void checkForCollisionsWithPeople() {
     }
     
-    /*
-    @Override
-    public boolean onAreaTouched(TouchEvent pSceneTouchEvent, float pTouchAreaLocalX, float pTouchAreaLocalY) {
-        //blob.setX(blob.getX() + SQUARE_SIDE);
-    	this.setPosition(pSceneTouchEvent.getX() - this.getWidth() / 2, pSceneTouchEvent.getY() - this.getHeight() / 2);
-        return true;
-    }*/
-    
-    @Override
+    /*@Override
     public boolean onAreaTouched(TouchEvent pSceneTouchEvent, float pTouchAreaLocalX, float pTouchAreaLocalY) {
     	//set flag member variable that sprite has been touched
         if (pSceneTouchEvent.isActionDown())
@@ -94,9 +94,9 @@ public class PlayerSprite extends Sprite {
             swipeEndY = -1;
         }
         return true;
-    }
+    }*/
     
-    private void swipeMove(float deltaX, float deltaY){
+    /*protected void swipeMove(float deltaX, float deltaY){
     	float absDeltaX = Math.abs(deltaX);
     	float absDeltaY = Math.abs(deltaY);
     	
@@ -130,31 +130,38 @@ public class PlayerSprite extends Sprite {
 	    		}
 	    	}
     	}
-    }
+    	else {
+    		// Detected a tap
+    		waitOnTap();
+    	}
+    }*/
     
     // Max X: 480
     // Max Y: 800
     // Increments of 80
    
-    private void moveUp(){ // Confirmed to work
+    protected void waitOnTap(){
+    	Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Detected a tap; waiting.");
+    }
+    protected void moveUp(){ // Confirmed to work
     	Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving UP");
     	if (!collidingWithObjects(MOVING_NORTH) && this.getY() >= ActGameScreen.BOARD_MIN_Y + ActGameScreen.SQUARE_SIDE){
     		this.setY(this.getY() - ActGameScreen.SQUARE_SIDE);
     	}
     }
-    private void moveDown(){ // Confirmed to work
+    protected void moveDown(){ // Confirmed to work
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving DOWN");
 		if (!collidingWithObjects(MOVING_SOUTH) && this.getY() < ActGameScreen.BOARD_MAX_Y - ActGameScreen.SQUARE_SIDE){
     		this.setY(this.getY() + ActGameScreen.SQUARE_SIDE);
     	}
     }
-	private void moveLeft(){
+	protected void moveLeft(){
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving LEFT");
 		if (!collidingWithObjects(MOVING_WEST) && this.getX() >= ActGameScreen.BOARD_MIN_X + ActGameScreen.SQUARE_SIDE){
     		this.setX(this.getX() - ActGameScreen.SQUARE_SIDE);
     	}
 	}
-	private void moveRight(){ // Confirmed to work
+	protected void moveRight(){ // Confirmed to work
 		Log.w("SWIPE_DEBUG", "SWIPE_DEBUG: Moving RIGHT");
 		if (!collidingWithObjects(MOVING_EAST) && this.getX() <= ActGameScreen.BOARD_MAX_X - ActGameScreen.SQUARE_SIDE){
     		this.setX(this.getX() + ActGameScreen.SQUARE_SIDE);
