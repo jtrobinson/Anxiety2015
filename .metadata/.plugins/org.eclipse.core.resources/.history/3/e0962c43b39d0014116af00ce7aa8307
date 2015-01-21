@@ -1,0 +1,27 @@
+package zesty.squid.anxiety;
+
+public class GridInfo {
+	private int _minX;
+	private int _minY;
+	private int _maxX;
+	private int _maxY;
+	private int _squareSide;
+	
+	private GridSquare [][] squares;
+	
+	//public GridInfo (int minX, int minY, int maxX, int maxY, int squareSide){
+	public GridInfo (){
+		squares = new GridSquare [ActGameScreen.NUM_COLS][ActGameScreen.NUM_ROWS];
+		int startX = ActGameScreen.BOARD_MIN_X;
+		int startY = ActGameScreen.BOARD_MIN_Y;
+		int topX, topY = 0;
+		
+		// Instantiate GridSquares
+		for (int x = 0; x < ActGameScreen.NUM_COLS; x++){
+			topX = startX + (x*ActGameScreen.SQUARE_SIDE);
+			for (int y = 0; y < ActGameScreen.NUM_ROWS; y++){
+				
+			}
+		}
+	}
+}

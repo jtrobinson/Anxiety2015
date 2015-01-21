@@ -8,4 +8,5 @@
 <fullyQualifiedTypeName name="org.andengine.opengl.vbo.VertexBufferObjectManager"/>
 <fullyQualifiedTypeName name="android.view.MotionEvent"/>
 <fullyQualifiedTypeName name="org.andengine.entity.scene.IOnSceneTouchListener"/>
+<fullyQualifiedTypeName name="org.andengine.extension.tmx.BuildConfig"/>
 </qualifiedTypeNameHistroy>

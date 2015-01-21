@@ -1,0 +1,18 @@
+package zesty.squid.anxiety;
+
+public class GridInfo {
+	private int _minX;
+	private int _minY;
+	private int _maxX;
+	private int _maxY;
+	private int _squareSide;
+	
+	
+	public GridInfo (int minX, int minY, int maxX, int maxY, int squareSide){
+		_minX = minX;
+		_minY = minY;
+		_maxX = maxX;
+		_maxY = maxY;
+		_squareSide = squareSide;
+	}
+}

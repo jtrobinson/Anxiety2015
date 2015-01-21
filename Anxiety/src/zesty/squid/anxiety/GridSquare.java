@@ -12,36 +12,17 @@ public class GridSquare {
 	public GridSquare(int topX, int topY){
 		_topX = topX;
 		_topY = topY;
-		_debugChar = '~';
+		_debugChar = 'G';
 	}
 	
 	public boolean isOccupied(){return _occupied;}
-	public void setOccupied(boolean value){
-		_occupied = value;
-	}
-	
 	public boolean isSeat(){return _seat;}
 	public void setSeat(boolean value){
 		_seat = value;
+		if (_seat)
+			_debugChar = 'X';
+		else 
+			_debugChar = 'O';
 	}
-	
-	public char getChar(){
-		if (_seat){
-			if (_occupied){
-				_debugChar = 'X';
-			}
-			else{
-				_debugChar = '#';
-			}
-		}
-		else {
-			if (_occupied){
-				_debugChar = 'O';
-			}
-			else{
-				_debugChar = '.';
-			}
-		}
-		return _debugChar;
-	}
+	public char getChar(){return _debugChar;}
 }
