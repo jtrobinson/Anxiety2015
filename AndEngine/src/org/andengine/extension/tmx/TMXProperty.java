@@ -1,17 +1,16 @@
-package org.andengine.entity.util;
+package org.andengine.extension.tmx;
 
-import org.andengine.engine.handler.IUpdateHandler;
-import org.andengine.extension.tmx.BuildConfig;
-import org.andengine.util.debug.Debug;
+import org.andengine.extension.tmx.util.constants.TMXConstants;
+import org.xml.sax.Attributes;
 
 /**
- * (c) 2010 Nicolas Gramlich 
+ * (c) 2010 Nicolas Gramlich
  * (c) 2011 Zynga Inc.
  * 
  * @author Nicolas Gramlich
- * @since 19:52:31 - 09.03.2010
+ * @since 10:14:06 - 27.07.2010
  */
-public class FrameCountCrasher implements IUpdateHandler {
+public class TMXProperty implements TMXConstants {
 	// ===========================================================
 	// Constants
 	// ===========================================================
@@ -20,48 +19,37 @@ public class FrameCountCrasher implements IUpdateHandler {
 	// Fields
 	// ===========================================================
 
-	private int mFramesLeft;
-
-	private final float[] mFrameLengths;
+	private final String mName;
+	private final String mValue;
 
 	// ===========================================================
 	// Constructors
 	// ===========================================================
 
-	public FrameCountCrasher(final int pFrameCount) {
-		this.mFramesLeft = pFrameCount;
-		this.mFrameLengths = new float[pFrameCount];
+	public TMXProperty(final Attributes pAttributes) {
+		this.mName = pAttributes.getValue("", TMXConstants.TAG_PROPERTY_ATTRIBUTE_NAME);
+		this.mValue = pAttributes.getValue("", TMXConstants.TAG_PROPERTY_ATTRIBUTE_VALUE);
 	}
 
 	// ===========================================================
 	// Getter & Setter
 	// ===========================================================
 
+	public String getName() {
+		return this.mName;
+	}
+
+	public String getValue() {
+		return this.mValue;
+	}
+
 	// ===========================================================
 	// Methods for/from SuperClass/Interfaces
 	// ===========================================================
 
 	@Override
-	public void onUpdate(final float pSecondsElapsed) {
-		this.mFramesLeft--;
-
-		final float[] frameLengths = this.mFrameLengths;
-		if(this.mFramesLeft >= 0) {
-			frameLengths[this.mFramesLeft] = pSecondsElapsed;
-		} else {
-			if(BuildConfig.DEBUG) {
-				for(int i = frameLengths.length - 1; i >= 0; i--) {
-					Debug.d("Elapsed: " + frameLengths[i]);
-				}
-			}
-
-			throw new RuntimeException();
-		}
-	}
-
-	@Override
-	public void reset() {
-
+	public String toString() {
+		return this.mName + "='" + this.mValue + "'";
 	}
 
 	// ===========================================================

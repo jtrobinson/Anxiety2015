@@ -1,6 +1,6 @@
 package org.andengine.entity.util;
 
-import org.andengine.extension.tmx.BuildConfig;
+import org.andengine.BuildConfig;
 import org.andengine.util.debug.Debug;
 import org.andengine.util.time.TimeConstants;
 
